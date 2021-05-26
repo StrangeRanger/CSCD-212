@@ -1,3 +1,13 @@
+import characters.heroes.Hero;
+import characters.heroes.Sorceress;
+import characters.heroes.Thief;
+import characters.heroes.Warrior;
+import characters.monsters.Gremlin;
+import characters.monsters.Monster;
+import characters.monsters.Ogre;
+import characters.monsters.Skeleton;
+import io.Keyboard;
+
 /**
  * Driver file for Heroes and Monsters project.
  *
