@@ -1,12 +1,15 @@
 package characters;
+import java.util.Random;
 
 /** Abstract Base class for inheritance hierarchy for a role playing game. */
-public abstract class DungeonCharacter implements Comparable {
+public abstract class DungeonCharacter implements Comparable<Object> {
     protected String name;
     protected int    hitPoints;
     protected int    attackSpeed;
     protected double chanceToHit;
-    protected int    damageMin, damageMax;
+    protected int    damageMin;
+    protected int    damageMax;
+    protected Random randomInt = new Random();
 
     @Override
     public int compareTo(Object o) {
@@ -24,8 +27,8 @@ public abstract class DungeonCharacter implements Comparable {
      * @param damageMin	  Minimum amount of damage a character can inflict.
      * @param damageMax	  Maximum amount of damage a character can inflict.
      */
-    public DungeonCharacter(String name, int hitPoints, int attackSpeed,
-                            double chanceToHit, int damageMin, int damageMax) {
+    protected DungeonCharacter(String name, int hitPoints, int attackSpeed,
+                               double chanceToHit, int damageMin, int damageMax) {
         this.name        = name;
         this.hitPoints   = hitPoints;
         this.attackSpeed = attackSpeed;
@@ -128,9 +131,9 @@ public abstract class DungeonCharacter implements Comparable {
         canAttack = Math.random() <= chanceToHit;
 
         if (canAttack) {
-            damage = (int) (Math.random() * (damageMax - damageMin + 1)) + damageMin;
-            opponent.subtractHitPoints(damage);
+            damage = randomInt.nextInt(damageMax - damageMin + 1) + damageMin;
 
+            opponent.subtractHitPoints(damage);
             System.out.println();
         } else {
             System.out.println(getName() + "'s attack on " + opponent.getName()

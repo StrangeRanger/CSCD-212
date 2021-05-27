@@ -7,7 +7,8 @@ import characters.DungeonCharacter;
  */
 public abstract class Monster extends DungeonCharacter {
     protected double chanceToHeal;
-    protected int    minHeal, maxHeal;
+    protected int    minHeal;
+    protected int    maxHeal;
 
     /**
      * Constructor.
@@ -22,9 +23,9 @@ public abstract class Monster extends DungeonCharacter {
      * @param minHeal      The minimum amount of health to be restored.
      * @param maxHeal      The maximum amount of health to be restored...
      */
-    public Monster(String name, int hitPoints, int attackSpeed, double chanceToHit,
-                   double chanceToHeal, int damageMin, int damageMax, int minHeal,
-                   int maxHeal) {
+    protected Monster(String name, int hitPoints, int attackSpeed, double chanceToHit,
+                      double chanceToHeal, int damageMin, int damageMax, int minHeal,
+                      int maxHeal) {
         super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
         this.chanceToHeal = chanceToHeal;
         this.maxHeal      = maxHeal;
@@ -39,7 +40,7 @@ public abstract class Monster extends DungeonCharacter {
         canHeal = (Math.random() <= chanceToHeal) && (hitPoints > 0);
 
         if (canHeal) {
-            healPoints = (int) (Math.random() * (maxHeal - minHeal + 1)) + minHeal;
+            healPoints = randomInt.nextInt(maxHeal - minHeal + 1);
             addHitPoints(healPoints);
             System.out.println(name + " healed itself for " + healPoints + " points.\n"
                                + "Total hit points remaining are: " + hitPoints);

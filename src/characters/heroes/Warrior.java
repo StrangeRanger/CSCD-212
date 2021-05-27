@@ -16,7 +16,7 @@ public class Warrior extends Hero {
      */
     public void crushingBlow(DungeonCharacter opponent) {
         if (Math.random() <= .4) {
-            int blowPoints = (int) (Math.random() * 76) + 100;
+            var blowPoints = randomInt.nextInt(76) + 100;
             System.out.println(name + " lands a CRUSHING BLOW for " + blowPoints
                                + " damage!");
             opponent.subtractHitPoints(blowPoints);

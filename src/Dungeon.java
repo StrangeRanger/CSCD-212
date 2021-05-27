@@ -1,11 +1,7 @@
-import characters.heroes.Hero;
-import characters.heroes.Sorceress;
-import characters.heroes.Thief;
-import characters.heroes.Warrior;
-import characters.monsters.Gremlin;
-import characters.monsters.Monster;
-import characters.monsters.Ogre;
-import characters.monsters.Skeleton;
+import java.util.Random;
+
+import characters.heroes.*;
+import characters.monsters.*;
 import io.Keyboard;
 
 /**
@@ -20,6 +16,8 @@ import io.Keyboard;
  * Once a battle concludes, the user has the option of repeating the above.
  */
 public class Dungeon {
+    public static final Random randomInt = new Random();
+
     /** Main method. */
     public static void main(String[] args) {
         Hero    theHero;
@@ -40,8 +38,7 @@ public class Dungeon {
      * @return Return the specified hero [class].
      */
     public static Hero chooseHero() {
-        int  choice;
-        Hero theHero;
+        int choice;
 
         System.out.println("Choose a hero:\n"
                            + "1. Warrior\n"
@@ -49,6 +46,7 @@ public class Dungeon {
                            + "3. Thief");
         choice = Keyboard.readInt();
 
+        // TODO: Use a while loop to force correct input?
         switch (choice) {
             case 1 :
                 return new Warrior();
@@ -69,9 +67,9 @@ public class Dungeon {
      * @return Return a random monster [class].
      */
     public static Monster generateMonster() {
-        int choice;
-        choice = (int) (Math.random() * 3) + 1;
+        var choice = randomInt.nextInt(3) + 1;
 
+        // TODO: Use a while loop to force correct input?
         switch (choice) {
             case 1 :
                 return new Ogre();
@@ -109,7 +107,7 @@ public class Dungeon {
      * @param theMonster The monster to be fought.
      */
     public static void battle(Hero theHero, Monster theMonster) {
-        char pause = 'p';
+        var pause = 'p';
         System.out.println(theHero.getName() + " battles " + theMonster.getName());
         System.out.println("---------------------------------------------");
 

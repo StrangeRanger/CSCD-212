@@ -1,7 +1,8 @@
 package io;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 /**
  * Facilitates keyboard input by abstracting details about input parsing, conversions,
@@ -18,14 +19,8 @@ public class Keyboard {
         return errorCount;
     }
 
-    /**
-     * Resets the current error count to zero.
-     *
-     * TODO: The parameter is not used, so it might be good to remove it.
-     *
-     * @param count ???
-     */
-    public static void resetErrorCount(int count) {
+    /** Resets the current error count to zero. */
+    public static void resetErrorCount() {
         errorCount = 0;
     }
 
@@ -62,8 +57,7 @@ public class Keyboard {
 
     //*************  Tokenized Input Stream Section  ******************
 
-    // TODO: Might be good to rename the variable the expected cammalCase.
-    private static String          current_token = null;
+    private static String          currentToken = null;
     private static StringTokenizer reader;
 
     private static BufferedReader in
@@ -83,11 +77,11 @@ public class Keyboard {
     private static String getNextToken(boolean skip) {
         String token;
 
-        if (current_token == null)
+        if (currentToken == null)
             token = getNextInputToken(skip);
         else {
-            token         = current_token;
-            current_token = null;
+            token        = currentToken;
+            currentToken = null;
         }
 
         return token;
@@ -101,8 +95,8 @@ public class Keyboard {
      * @return     ...
      */
     private static String getNextInputToken(boolean skip) {
-        final String delimiters = " \t\n\r\f";
-        String       token      = null;
+        final var delimiters = " \t\n\r\f";
+        String    token      = null;
 
         try {
             if (reader == null) {
@@ -163,9 +157,9 @@ public class Keyboard {
         boolean bool;
 
         try {
-            if (token.toLowerCase().equals("true"))
+            if (token.equalsIgnoreCase("true"))
                 bool = true;
-            else if (token.toLowerCase().equals("false"))
+            else if (token.equalsIgnoreCase("false"))
                 bool = false;
             else {
                 error("Error reading boolean data, false value returned.");
@@ -185,9 +179,9 @@ public class Keyboard {
 
         try {
             if (token.length() > 1) {
-                current_token = token.substring(1, token.length());
+                currentToken = token.substring(1, token.length());
             } else
-                current_token = null;
+                currentToken = null;
 
             value = token.charAt(0);
         } catch (Exception exception) {
@@ -232,7 +226,7 @@ public class Keyboard {
         float  value;
 
         try {
-            value = (new Float(token)).floatValue();
+            value = Float.parseFloat(token);
         } catch (Exception exception) {
             error("Error reading float data, NaN value returned.");
             value = Float.NaN;
@@ -246,7 +240,7 @@ public class Keyboard {
         double value;
 
         try {
-            value = (new Double(token)).doubleValue();
+            value = Double.parseDouble(token);
         } catch (Exception exception) {
             error("Error reading double data, NaN value returned.");
             value = Double.NaN;
