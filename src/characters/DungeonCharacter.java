@@ -1,4 +1,5 @@
 package characters;
+
 import java.util.Random;
 
 /** Abstract Base class for inheritance hierarchy for a role playing game. */
@@ -55,8 +56,8 @@ public abstract class DungeonCharacter implements Comparable<Object> {
     /**
      * addHitPoints is used to increment the hitPoints a dungeon character has.
      *
-     * This method calls: nothing
-     * This method is called by: heal method of monsters and Sorcerers
+     * This method calls: 		 Nothing.
+     * This method is called by: Heal method of monsters and Sorcerers.
      *
      * @param hitPoints The number of hit points to add.
      */
@@ -65,6 +66,7 @@ public abstract class DungeonCharacter implements Comparable<Object> {
             System.out.println("Hitpoint amount must be positive.");
         } else {
             this.hitPoints += hitPoints;
+            // TODO: Figure out what to do with this.
             // System.out.println("Remaining Hit Points: " + hitPoints);
         }
     }
@@ -74,8 +76,8 @@ public abstract class DungeonCharacter implements Comparable<Object> {
      * also reports the damage and remaining hit points (these things could be done in
      * separate methods to make code more modular ;-)
      *
-     * This method calls: nothing
-     * This method is called by: overridden versions in Hero and Monster
+     * This method calls: 		 Nothing.
+     * This method is called by: Overridden versions in Hero and Monster.
      *
      * @param hitPoints The number of hit points to subtract.
      */
@@ -104,8 +106,8 @@ public abstract class DungeonCharacter implements Comparable<Object> {
     /**
      * isAlive is used to see if a character is still alive by checking hit points.
      *
-     * This method calls: nothing
-     * This method is called by: unknown (intended for external use)
+     * This method calls: 		 Nothing.
+     * This method is called by: Unknown (intended for external use)
      *
      * @return True if hero is alive, false otherwise.
      */
@@ -118,27 +120,25 @@ public abstract class DungeonCharacter implements Comparable<Object> {
      * considered. If a hit can occur, then the damage is calculated based on
      * character's damage range. This damage is then applied to the opponent.
      *
-     * This method calls: Math.random(), subtractHitPoints()
-     * This method is called by: overridden versions of the method in monster and hero
-     * 							 classes and externally
+     * This method calls:        Math.random(), subtractHitPoints().
+     * This method is called by: Overridden versions of the method in monster and hero
+     * 						 	 classes and externally
      *
      * @param opponent The opponent being attacked.
      */
     public void attack(DungeonCharacter opponent) {
-        boolean canAttack;
+        boolean canAttack = Math.random() <= chanceToHit;
         int     damage;
 
-        canAttack = Math.random() <= chanceToHit;
 
         if (canAttack) {
             damage = randomInt.nextInt(damageMax - damageMin + 1) + damageMin;
 
             opponent.subtractHitPoints(damage);
-            System.out.println();
         } else {
             System.out.println(getName() + "'s attack on " + opponent.getName()
                                + " failed!");
-            System.out.println();
         }
+        System.out.println();
     }
 }

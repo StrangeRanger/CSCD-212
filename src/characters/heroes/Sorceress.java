@@ -1,4 +1,5 @@
 package characters.heroes;
+
 import characters.DungeonCharacter;
 import io.Keyboard;
 

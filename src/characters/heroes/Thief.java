@@ -1,4 +1,5 @@
 package characters.heroes;
+
 import characters.DungeonCharacter;
 import io.Keyboard;
 
@@ -16,6 +17,7 @@ public class Thief extends Hero {
      */
     public void surpriseAttack(DungeonCharacter opponent) {
         double surprise = Math.random();
+        
         if (surprise <= .4) {
             System.out.println("Surprise attack was successful!\n" + name
                                + " gets an additional turn.");

@@ -1,4 +1,5 @@
 package characters.heroes;
+
 import characters.DungeonCharacter;
 import io.Keyboard;
 
@@ -33,9 +34,9 @@ public abstract class Hero extends DungeonCharacter {
 
     /**
      * readName obtains a name for the hero from the user.
-     *
-     * This method calls: nothing
-     * This method is called by: hero constructor
+     * 
+     * This method calls: 		 Nothing.
+     * This method is called by: Hero constructor.
      */
     public void readName() {
         System.out.print("Enter character name: ");
@@ -45,8 +46,8 @@ public abstract class Hero extends DungeonCharacter {
     /**
      * defend determines if hero blocks attack.
      *
-     * This method calls: Math.random()
-     * This method is called by: subtractHitPoints()
+     * This method calls:        Math.random().
+     * This method is called by: subtractHitPoints().
      *
      * @return True if attack is blocked, false otherwise.
      */
@@ -60,8 +61,8 @@ public abstract class Hero extends DungeonCharacter {
      * subtraction operation.  This method overrides the method inherited from
      * DungeonCharacter promoting polymorphic behavior.
      *
-     * This method calls: defend() or base version of method
-     * This method is called by: attack() from base class
+     * This method calls:        defend() or base version of method.
+     * This method is called by: attack() from base class.
      *
      * @param hitPoints The number of hit points to subtract.
      */
@@ -80,8 +81,8 @@ public abstract class Hero extends DungeonCharacter {
      * number of turns is reported to the user.  This stuff might go better in another
      * method that is invoked from this one...
      *
-     * This method calls: getAttackSpeed()
-     * This method is called by: external sources
+     * This method calls:        getAttackSpeed().
+     * This method is called by: External sources.
      *
      * @param opponent The opponent to attack.
      */

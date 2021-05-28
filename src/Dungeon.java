@@ -41,9 +41,9 @@ public class Dungeon {
         int choice;
 
         System.out.println("Choose a hero:\n"
-                           + "1. Warrior\n"
-                           + "2. Sorceress\n"
-                           + "3. Thief");
+                           + "  1. Warrior\n"
+                           + "  2. Sorceress\n"
+                           + "  3. Thief");
         choice = Keyboard.readInt();
 
         // TODO: Use a while loop to force correct input?
@@ -98,6 +98,8 @@ public class Dungeon {
         return (again == 'Y' || again == 'y');
     }
 
+    // TODO: Add output to make it more clear when the hero and monster are
+    //       performing some action.
     /**
      * battle is the actual combat portion of the game. It requires a Hero and a Monster
      * to be passed in.  Battle occurs in rounds. The Hero goes first, then the Monster.
@@ -123,6 +125,8 @@ public class Dungeon {
 
             // Let the player bail out if desired
             System.out.print("\n-->q to quit, anything else to continue: ");
+            // TODO: Make it possible to just press enter instead of requiring the user
+            //       to enter a letter, then press [Enter].
             pause = Keyboard.readChar();
         }
 

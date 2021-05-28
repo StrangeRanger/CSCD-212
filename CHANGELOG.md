@@ -8,7 +8,7 @@
 
 ### Changed
 
-- Rewrote all the comments to follow the standard javadocs comments...
+- Adeed new and updated existing comments to follow the standard javadocs comment style...
 - Modified file structure.
 - Removed unused parameter from `io.Keyboard.resetErrorCount()`.
 - Replaced (almost) all instances of `Math.random() * <some number>` with `java.util.Random.nextInt()`.
@@ -21,3 +21,4 @@
 - Marked all methods that override another with `@Override`. 
 - Moved variables declared on the same line, to their own seperate line for better readbility.
 - Constructor of abstract classes have been made `protected`.
+- Removed a Hero type variable declaration from `Dungeon.chooseHero()`, as it was not used.

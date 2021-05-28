@@ -4,15 +4,25 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+// TODO: Implement singleton pattern on the keyboard.
 /**
  * Facilitates keyboard input by abstracting details about input parsing, conversions,
  * and exception handling.
  */
 public class Keyboard {
-    //*************  Error Handling Section  **************************
+    //****[ Variable Declaration ]****************************************************\\
 
+    /// Error Handling Variables
     private static boolean printErrors = true;
     private static int     errorCount  = 0;
+
+    /// Tokenized Input Stream Variables
+    private static String          currentToken = null;
+    private static StringTokenizer reader;
+    private static BufferedReader  in
+            = new BufferedReader(new InputStreamReader(System.in));
+    
+    //****[ Error Handling Methods ]**************************************************\\
 
     /** Returns the current error count. */
     public static int getErrorCount() {
@@ -55,19 +65,14 @@ public class Keyboard {
         }
     }
 
-    //*************  Tokenized Input Stream Section  ******************
-
-    private static String          currentToken = null;
-    private static StringTokenizer reader;
-
-    private static BufferedReader in
-            = new BufferedReader(new InputStreamReader(System.in));
+    //****[ Tokenized Input Stream Section ]******************************************\\
 
     /** Gets the next input token assuming it may be on subsequent input lines. */
     private static String getNextToken() {
         return getNextToken(true);
     }
 
+    // TODO: Add more to method comments.
     /**
      * Gets the next input token, which may already have been read.
      *
@@ -87,6 +92,7 @@ public class Keyboard {
         return token;
     }
 
+    // TODO: Add more to method comments.
     /**
      * Gets the next token from the input, which may come from the current input line or
      * a subsequent one. The parameter determines if subsequent lines are used.
@@ -121,7 +127,7 @@ public class Keyboard {
         return ! reader.hasMoreTokens();
     }
 
-    //*************  Reading Section  *********************************
+    //****[ Reading Methods ]*********************************************************\\
 
     /** Returns a string read from standard input. */
     public static String readString() {
@@ -157,11 +163,11 @@ public class Keyboard {
         boolean bool;
 
         try {
-            if (token.equalsIgnoreCase("true"))
+            if (token.equalsIgnoreCase("true")) {
                 bool = true;
-            else if (token.equalsIgnoreCase("false"))
+            } else if (token.equalsIgnoreCase("false")) {
                 bool = false;
-            else {
+            } else {
                 error("Error reading boolean data, false value returned.");
                 bool = false;
             }
@@ -180,9 +186,10 @@ public class Keyboard {
         try {
             if (token.length() > 1) {
                 currentToken = token.substring(1, token.length());
-            } else
+            } else {
                 currentToken = null;
-
+            }
+            
             value = token.charAt(0);
         } catch (Exception exception) {
             error("Error reading char data, MIN_VALUE value returned.");
