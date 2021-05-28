@@ -29,3 +29,7 @@ hs_err_pid*
 
 # Custom script to help my formatting process
 java.sh
+
+# IntelliJ created files
+.idea/
+DungeonSource.iml
