@@ -9,9 +9,7 @@ public class Sorceress extends Hero {
     public final int MAX_ADD = 50;
 
     /** Constructor. */
-    public Sorceress() {
-        super("Sorceress", 75, 5, .7, 25, 50, .3);
-    }
+    public Sorceress() { super("Sorceress", 75, 5, .7, 25, 50, .3); }
 
     /** Special move. */
     public void increaseHitPoints() {
@@ -42,14 +40,9 @@ public class Sorceress extends Hero {
             choice = Keyboard.readInt();
 
             switch (choice) {
-                case 1 :
-                    attack(opponent);
-                    break;
-                case 2 :
-                    increaseHitPoints();
-                    break;
-                default :
-                    System.out.println("invalid choice!");
+                case 1: attack(opponent); break;
+                case 2: increaseHitPoints(); break;
+                default: System.out.println("invalid choice!");
             }
 
             numTurns--;

@@ -28,8 +28,12 @@ public abstract class DungeonCharacter implements Comparable<Object> {
      * @param damageMin	  Minimum amount of damage a character can inflict.
      * @param damageMax	  Maximum amount of damage a character can inflict.
      */
-    protected DungeonCharacter(String name, int hitPoints, int attackSpeed,
-                               double chanceToHit, int damageMin, int damageMax) {
+    protected DungeonCharacter(String name,
+                               int    hitPoints,
+                               int    attackSpeed,
+                               double chanceToHit,
+                               int    damageMin,
+                               int    damageMax) {
         this.name        = name;
         this.hitPoints   = hitPoints;
         this.attackSpeed = attackSpeed;
@@ -39,19 +43,13 @@ public abstract class DungeonCharacter implements Comparable<Object> {
     }
 
     /** Return the character's name. */
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
     /** Return a character's hit point (health). */
-    public int getHitPoints() {
-        return hitPoints;
-    }
+    public int getHitPoints() { return hitPoints; }
 
     /** Return the character's attack speed. */
-    public int getAttackSpeed() {
-        return attackSpeed;
-    }
+    public int getAttackSpeed() { return attackSpeed; }
 
     /**
      * addHitPoints is used to increment the hitPoints a dungeon character has.
@@ -87,9 +85,7 @@ public abstract class DungeonCharacter implements Comparable<Object> {
         } else if (hitPoints > 0) {
             this.hitPoints -= hitPoints;
 
-            if (this.hitPoints < 0) {
-                this.hitPoints = 0;
-            }
+            if (this.hitPoints < 0) { this.hitPoints = 0; }
 
             System.out.println(getName() + " hit "
                                + " for <" + hitPoints + "> points damage.");
@@ -98,9 +94,7 @@ public abstract class DungeonCharacter implements Comparable<Object> {
             System.out.println();
         }
 
-        if (this.hitPoints == 0) {
-            System.out.println(name + " has been killed :-(");
-        }
+        if (this.hitPoints == 0) { System.out.println(name + " has been killed :-("); }
     }
 
     /**
@@ -111,9 +105,7 @@ public abstract class DungeonCharacter implements Comparable<Object> {
      *
      * @return True if hero is alive, false otherwise.
      */
-    public boolean isAlive() {
-        return (hitPoints > 0);
-    }
+    public boolean isAlive() { return (hitPoints > 0); }
 
     /**
      * attack allows character to attempt attack on opponent.  First, chance to hit is

@@ -6,9 +6,7 @@ import io.Keyboard;
 /** Thief character. */
 public class Thief extends Hero {
     /** Constructor. */
-    public Thief() {
-        super("Thief", 75, 6, .8, 20, 40, .5);
-    }
+    public Thief() { super("Thief", 75, 6, .8, 20, 40, .5); }
 
     /**
      * Special move.
@@ -17,7 +15,7 @@ public class Thief extends Hero {
      */
     public void surpriseAttack(DungeonCharacter opponent) {
         double surprise = Math.random();
-        
+
         if (surprise <= .4) {
             System.out.println("Surprise attack was successful!\n" + name
                                + " gets an additional turn.");
@@ -43,14 +41,9 @@ public class Thief extends Hero {
             choice = Keyboard.readInt();
 
             switch (choice) {
-                case 1 :
-                    attack(opponent);
-                    break;
-                case 2 :
-                    surpriseAttack(opponent);
-                    break;
-                default :
-                    System.out.println("invalid choice!");
+                case 1: attack(opponent); break;
+                case 2: surpriseAttack(opponent); break;
+                default: System.out.println("invalid choice!");
             }
 
             numTurns--;

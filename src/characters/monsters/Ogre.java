@@ -5,9 +5,7 @@ import characters.DungeonCharacter;
 /** Ogre character. */
 public class Ogre extends Monster {
     /** Constructor. */
-    public Ogre() {
-        super("Oscar the Ogre", 200, 2, .6, .1, 30, 50, 30, 50);
-    }
+    public Ogre() { super("Oscar the Ogre", 200, 2, .6, .1, 30, 50, 30, 50); }
 
     @Override
     public void attack(DungeonCharacter opponent) {

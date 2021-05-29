@@ -6,9 +6,7 @@ import io.Keyboard;
 /** Warrior character. */
 public class Warrior extends Hero {
     /** Constructor. */
-    public Warrior() {
-        super("Warrior", 125, 4, .8, 35, 60, .2);
-    }
+    public Warrior() { super("Warrior", 125, 4, .8, 35, 60, .2); }
 
     /**
      * Special move.
@@ -47,14 +45,9 @@ public class Warrior extends Hero {
             choice = Keyboard.readInt();
 
             switch (choice) {
-                case 1 :
-                    attack(opponent);
-                    break;
-                case 2 :
-                    crushingBlow(opponent);
-                    break;
-                default :
-                    System.out.println("invalid choice!");
+                case 1: attack(opponent); break;
+                case 2: crushingBlow(opponent); break;
+                default: System.out.println("invalid choice!");
             }
 
             numTurns--;

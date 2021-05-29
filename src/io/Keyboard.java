@@ -22,14 +22,10 @@ public class Keyboard {
      *
      * @param str Error text to be printed.
      */
-    private static void error(String str) {
-        System.out.println(str);
-    }
+    private static void error(String str) { System.out.println(str); }
 
     /** Gets the next input token assuming it may be on subsequent input lines. */
-    private static String getNextToken() {
-        return getNextToken(true);
-    }
+    private static String getNextToken() { return getNextToken(true); }
 
     /**
      * Gets the next input token, which may already have been read.
@@ -83,11 +79,8 @@ public class Keyboard {
     }
 
     /** Returns true if there are no more tokens to read on the current input line. */
-    public static boolean endOfLine() {
-        return ! reader.hasMoreTokens();
-    }
+    public static boolean endOfLine() { return ! reader.hasMoreTokens(); }
 
-    //****[ Reading Methods ]*********************************************************\\
 
     /** Returns a string read from standard input. */
     public static String readString() {
@@ -95,9 +88,7 @@ public class Keyboard {
 
         try {
             str = new StringBuilder(getNextToken(false));
-            while (! endOfLine()) {
-                str.append(getNextToken(false));
-            }
+            while (! endOfLine()) { str.append(getNextToken(false)); }
         } catch (Exception exception) {
             error("Error reading String data, null value returned.");
             str = null;
@@ -117,6 +108,7 @@ public class Keyboard {
             } else {
                 currentToken = null;
             }
+
 
             value = token.charAt(0);
         } catch (Exception exception) {

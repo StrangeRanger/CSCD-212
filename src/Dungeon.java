@@ -27,7 +27,6 @@ public class Dungeon {
             theHero    = chooseHero();
             theMonster = generateMonster();
             battle(theHero, theMonster);
-
         } while (playAgain());
     }
 
@@ -48,13 +47,10 @@ public class Dungeon {
 
         // TODO: Use a while loop to force correct input?
         switch (choice) {
-            case 1 :
-                return new Warrior();
-            case 2 :
-                return new Sorceress();
-            case 3 :
-                return new Thief();
-            default :
+            case 1: return new Warrior();
+            case 2: return new Sorceress();
+            case 3: return new Thief();
+            default:
                 System.out.println("invalid choice, returning Thief");
                 return new Thief();
         }
@@ -71,13 +67,10 @@ public class Dungeon {
 
         // TODO: Use a while loop to force correct input?
         switch (choice) {
-            case 1 :
-                return new Ogre();
-            case 2 :
-                return new Gremlin();
-            case 3 :
-                return new Skeleton();
-            default :
+            case 1: return new Ogre();
+            case 2: return new Gremlin();
+            case 3: return new Skeleton();
+            default:
                 System.out.println("invalid choice, returning Skeleton");
                 return new Skeleton();
         }
@@ -119,9 +112,7 @@ public class Dungeon {
             theHero.battleChoices(theMonster);
 
             // Monster's turn (provided it's still alive!)
-            if (theMonster.isAlive()) {
-                theMonster.attack(theHero);
-            }
+            if (theMonster.isAlive()) { theMonster.attack(theHero); }
 
             // Let the player bail out if desired
             System.out.print("\n-->q to quit, anything else to continue: ");

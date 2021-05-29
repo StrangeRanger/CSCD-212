@@ -1,6 +1,7 @@
 ---
 Language:        Java
 # BasedOnStyle:  Chromium
+# ???
 AccessModifierOffset: -1
 AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: AcrossComments
@@ -8,33 +9,42 @@ AlignConsecutiveAssignments: AcrossComments
 AlignConsecutiveBitFields: AcrossComments
 AlignConsecutiveDeclarations: AcrossComments
 AlignEscapedNewlines: Left
-#AlignOperands:   Align
-AlignOperands:   AlignAfterOperator
+AlignOperands:   Align
 AlignTrailingComments: true
-AllowAllArgumentsOnNextLine: true
-AllowAllConstructorInitializersOnNextLine: true
-AllowAllParametersOfDeclarationOnNextLine: true
-AllowShortEnumsOnASingleLine: false
-AllowShortBlocksOnASingleLine: Empty
-AllowShortCaseLabelsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: Empty
-AllowShortLambdasOnASingleLine: Empty
-AllowShortIfStatementsOnASingleLine: Never
-AllowShortLoopsOnASingleLine: false
+AllowAllArgumentsOnNextLine: false
+AllowAllConstructorInitializersOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+#AllowShortEnumsOnASingleLine: false
+AllowShortEnumsOnASingleLine: true
+AllowShortBlocksOnASingleLine: Always
+#AllowShortCaseLabelsOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortLambdasOnASingleLine: Inline
+#AllowShortIfStatementsOnASingleLine: Never
+AllowShortIfStatementsOnASingleLine: WithoutElse
+#AllowShortLoopsOnASingleLine: false
+AllowShortLoopsOnASingleLine: true
+# Deprecated
 AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
 AlwaysBreakTemplateDeclarations: No
 AttributeMacros:
   - __capability
+#BinPackArguments: false
 BinPackArguments: true
-BinPackParameters: true
+BinPackParameters: false
+BitFieldColonSpacing: Both
 BraceWrapping:
   AfterCaseLabel:  false
   AfterClass:      false
-  AfterControlStatement: MultiLine
+  #AfterClass:      true
+  #AfterControlStatement: MultiLine
+  AfterControlStatement: Never
   AfterEnum:       false
   AfterFunction:   false
+  #AfterFunction:   true
   AfterNamespace:  false
   AfterObjCDeclaration: false
   AfterStruct:     false
@@ -48,33 +58,35 @@ BraceWrapping:
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
-#BreakBeforeBinaryOperators: NonAssignment
 BreakBeforeBinaryOperators: All
-#BreakBeforeConceptDeclarations: false
-BreakBeforeConceptDeclarations: true
-BreakBeforeBraces: Attach
-# BreakBeforeInheritanceComma ???
-BreakBeforeInheritanceComma: false
-#BreakInheritanceList: BeforeColon
-BreakInheritanceList: AfterColon
+#BreakBeforeConceptDeclarations: true
+BreakBeforeConceptDeclarations: false
+BreakBeforeBraces: Custom
+# Not located in configuration guide
+# BreakBeforeInheritanceComma: false
+#BreakInheritanceList: AfterColon
+BreakInheritanceList: BeforeColon
 BreakBeforeTernaryOperators: true
-# BreakConstructorInitializersBeforeComma ???
-BreakConstructorInitializersBeforeComma: false
-#BreakConstructorInitializers: BeforeColon
-BreakConstructorInitializers: AfterColon
+# Not located in configuration guide
+# BreakConstructorInitializersBeforeComma: false
+#BreakConstructorInitializers: AfterColon
+BreakConstructorInitializers: BeforeColon
 BreakAfterJavaFieldAnnotations: true
 BreakStringLiterals: true
 ColumnLimit:     88
 CommentPragmas:  '^ IWYU pragma:'
+#CompactNamespaces: true
 CompactNamespaces: false
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
-ConstructorInitializerIndentWidth: 4
+ConstructorInitializerIndentWidth: 8
 ContinuationIndentWidth: 8
 Cpp11BracedListStyle: true
 DeriveLineEnding: true
-DerivePointerAlignment: true
+#DerivePointerAlignment: true
+DerivePointerAlignment: false
 DisableFormat:   false
-EmptyLineBeforeAccessModifier: Leave
+#EmptyLineBeforeAccessModifier: Leave
+EmptyLineBeforeAccessModifier: LogicalBlock
 ExperimentalAutoDetectBinPacking: false
 FixNamespaceComments: true
 ForEachMacros:
@@ -83,7 +95,8 @@ ForEachMacros:
   - BOOST_FOREACH
 StatementAttributeLikeMacros:
   - Q_EMIT
-IncludeBlocks:   Preserve
+#IncludeBlocks:   Preserve
+IncludeBlocks:   Merge
 IncludeCategories:
   - Regex:           '^<ext/.*\.h>'
     Priority:        2
@@ -104,12 +117,13 @@ IncludeCategories:
 IncludeIsMainRegex: '([-_](test|unittest))?$'
 IncludeIsMainSourceRegex: ''
 IndentCaseLabels: true
-IndentCaseBlocks: false
+IndentCaseBlocks: true
 IndentGotoLabels: true
 IndentPPDirectives: AfterHash
 IndentExternBlock: Indent
-IndentRequires:  false
+IndentRequires:  true
 IndentWidth:     4
+#IndentWrappedFunctionNames: true
 IndentWrappedFunctionNames: false
 InsertTrailingCommas: None
 JavaImportGroups:
@@ -128,14 +142,15 @@ JavaScriptWrapImports: true
 KeepEmptyLinesAtTheStartOfBlocks: false
 MacroBlockBegin: ''
 MacroBlockEnd:   ''
-MaxEmptyLinesToKeep: 1
+MaxEmptyLinesToKeep: 2
 NamespaceIndentation: All
+# Come back to the ObjC stuff later...
 ObjCBinPackProtocolList: Auto
 ObjCBlockIndentWidth: 4
 ObjCBreakBeforeNestedBlockParam: false
 ObjCSpaceAfterProperty: false
 ObjCSpaceBeforeProtocolList: false
-# I'm unsure for all penalty related configs, so I've left the defaults
+# Come back to the penalty breaks stuff later...
 PenaltyBreakAssignment: 2
 PenaltyBreakBeforeFirstCallParameter: 1
 PenaltyBreakComment: 300
@@ -146,6 +161,7 @@ PenaltyExcessCharacter: 1000000
 PenaltyReturnTypeOnItsOwnLine: 200
 PenaltyIndentedWhitespace: 0
 PointerAlignment: Right
+# ???
 RawStringFormats:
   - Language:        Cpp
     Delimiters:
@@ -178,18 +194,19 @@ RawStringFormats:
     BasedOnStyle:    google
 ReflowComments:  true
 SortIncludes:    true
-SortJavaStaticImport: Before
+SortJavaStaticImport: After
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: true
 SpaceAfterLogicalNot: true
 SpaceAfterTemplateKeyword: false
+#SpaceAroundPointerQualifiers: Default
+SpaceAroundPointerQualifiers: Before
 SpaceBeforeAssignmentOperators: true
-SpaceBeforeCaseColon: true
+SpaceBeforeCaseColon: false
 SpaceBeforeCpp11BracedList: true
 SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
 SpaceBeforeParens: ControlStatements
-SpaceAroundPointerQualifiers: Default
 SpaceBeforeRangeBasedForLoopColon: true
 SpaceInEmptyBlock: true
 SpaceInEmptyParentheses: false
@@ -201,12 +218,11 @@ SpacesInCStyleCastParentheses: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
 SpaceBeforeSquareBrackets: false
-BitFieldColonSpacing: Both
 Standard:        Auto
 StatementMacros:
   - Q_UNUSED
   - QT_REQUIRE_VERSION
-TabWidth:        8
+TabWidth:        4
 UseCRLF:         false
 UseTab:          Never
 WhitespaceSensitiveMacros:
@@ -217,3 +233,4 @@ WhitespaceSensitiveMacros:
   - CF_SWIFT_NAME
 ...
 # This comment and/or a space must exist after '...', else an error will be produced
+
