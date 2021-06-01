@@ -20,9 +20,7 @@ public class Keyboard {
      *
      * @param errorString Error text to be printed.
      */
-    private static void error(String errorString) {
-        System.out.println(errorString);
-    }
+    private static void error(String errorString) { System.out.println(errorString); }
 
     /** Gets the next input token, assuming it may be on subsequent input lines. */
     private static String getNextToken() { return getNextToken(true); }
