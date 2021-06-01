@@ -6,7 +6,7 @@ import characters.DungeonCharacter;
 public class Gremlin extends Monster {
     /** Constructor. */
     public Gremlin() {
-        /* 
+        /*
          * super(
          *      name         = "Gnarltooth the Gremlin"
          *      hitPoints    = 70
@@ -34,7 +34,7 @@ public class Gremlin extends Monster {
 
     @Override
     public void battleChoices(DungeonCharacter opponent) {
-        /* 
+        /*
          * battleChoices is not used in this class, but must be implemented in one way
          * or another.
          */

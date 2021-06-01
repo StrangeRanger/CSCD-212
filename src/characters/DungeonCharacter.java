@@ -88,7 +88,7 @@ public abstract class DungeonCharacter implements Comparable<Object> {
         }
 
         if (this.hitPoints == 0) {
-        	System.out.println();
+            System.out.println();
             System.out.println(name + " has been killed :-(");
         }
     }

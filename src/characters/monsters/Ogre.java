@@ -6,7 +6,7 @@ import characters.DungeonCharacter;
 public class Ogre extends Monster {
     /** Constructor. */
     public Ogre() {
-        /* 
+        /*
          * super(
          *      name         = "Oscar the Ogre"
          *      hitPoints    = 200
@@ -35,7 +35,7 @@ public class Ogre extends Monster {
 
     @Override
     public void battleChoices(DungeonCharacter theMonster) {
-    	/* 
+        /*
          * battleChoices is not used in this class, but must be implemented in one way
          * or another.
          */
