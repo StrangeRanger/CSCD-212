@@ -21,6 +21,9 @@ public class Skeleton extends Monster {
         super("Sargath the Skeleton", 100, 3, .8, .3, 30, 50, 30, 50);
     }
 
+    /**
+     * @param opponent The opponent being attacked.
+     */
     @Override
     public void attack(DungeonCharacter opponent) {
         System.out.println(name + " slices his rusty blade at " + opponent.getName()
@@ -31,7 +34,7 @@ public class Skeleton extends Monster {
     @Override
     public void battleChoices(DungeonCharacter theMonster) {
         /*
-        battleChoice is not used in this class, but must be implemented in one way or
+        battleChoices is not used in this class, but must be implemented in one way or
         another.
          */
     }

@@ -1,4 +1,5 @@
 import java.util.Random;
+
 import characters.CharacterFactory;
 import characters.DungeonCharacter;
 import io.Keyboard;
@@ -31,8 +32,7 @@ public class Dungeon {
     }
 
     /**
-     * chooseHero allows the user to select a hero, creates that hero, and returns it.
-     * It utilizes a polymorphic reference (Hero) to accomplish this task.
+     * Allows the user to select a hero, creates that hero, and returns it.
      *
      * @return Return the specified hero [class].
      */
@@ -60,8 +60,7 @@ public class Dungeon {
     }
 
     /**
-     * generateMonster randomly selects a Monster and returns it. It utilizes a
-     * polymorphic reference (Monster) to accomplish this task.
+     * Randomly selects a Monster and returns it.
      *
      * @return Return a random monster [class].
      */
@@ -78,10 +77,9 @@ public class Dungeon {
     }
 
     /**
-     * playAgain allows gets choice from user to play another game.  It returns true if
-     * the user chooses to continue, false otherwise.
+     * Get the user's answer of whether or not to play another game.
      *
-     * @return Whether or not the user entered 'y' or 'n'.
+     * @return Returns true if the user chooses to continue, false otherwise.
      */
     public static boolean playAgain() {
         String again;
@@ -93,12 +91,9 @@ public class Dungeon {
     }
 
     /**
-     * Performs the combat portion of the game. Battles occur in rounds. The Hero goes
+     * Perform the combat portion of the game. Battles occur in rounds. The Hero goes
      * first, then the Monster. At the conclusion of each round, the user has the option
      * of quitting.
-     *
-     * TODO: Add output to make it more clear when the hero and monster are performing
-     *       some action.
      *
      * @param theHero 	 The Hero that will fight the monster.
      * @param theMonster The monster to be fought.
@@ -108,20 +103,18 @@ public class Dungeon {
         System.out.println(theHero.getName() + " battles " + theMonster.getName());
         System.out.println("---------------------------------------------");
 
-        // Do battle
+        // Do battle.
         while (theHero.isAlive() && theMonster.isAlive() && ! pause.equals("q")) {
-            // Hero goes first
+            // Hero goes first.
             theHero.battleChoices(theMonster);
 
-            // Monster's turn (provided it's still alive!)
+            // Monster's turn (provided it's still alive!).
             if (theMonster.isAlive()) {
                 theMonster.attack(theHero);
             }
 
-            // Let the player bail out if desired
+            // Let the player bail out if desired.
             System.out.print("\n-->q to quit, anything else to continue: ");
-            // TODO: Make it possible to just press enter instead of requiring the user
-            //       to enter a letter, then press [Enter].
             pause = Keyboard.readString();
         }
 

@@ -41,6 +41,9 @@ public class Thief extends Hero {
         }
     }
 
+    /**
+     * @param opponent The opponent to attack.
+     */
     @Override
     public void battleChoices(DungeonCharacter opponent) {
         super.battleChoices(opponent);
@@ -67,6 +70,6 @@ public class Thief extends Hero {
                 System.out.println("Number of turns remaining is: " + numTurns);
             }
 
-        } while (numTurns > 0);
+        } while (numTurns > 0 && hitPoints > 0 && opponent.getHitPoints() > 0);
     }
 }

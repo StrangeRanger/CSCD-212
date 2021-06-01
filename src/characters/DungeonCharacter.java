@@ -1,18 +1,16 @@
 package characters;
 
 import java.util.Random;
-import java.util.Scanner;
 
 /** Abstract Base class for inheritance hierarchy for a role playing game. */
 public abstract class DungeonCharacter implements Comparable<Object> {
-    protected String  name;
-    protected int     hitPoints;
-    protected int     attackSpeed;
-    protected double  chanceToHit;
-    protected int     damageMin;
-    protected int     damageMax;
-    protected Random  randomInt = new Random();
-    protected Scanner userInput = new Scanner(System.in);
+    protected String name;
+    protected int    hitPoints;
+    protected int    attackSpeed;
+    protected double chanceToHit;
+    protected int    damageMin;
+    protected int    damageMax;
+    protected Random randomInt = new Random();
 
     @Override
     public int compareTo(Object o) {
@@ -46,14 +44,14 @@ public abstract class DungeonCharacter implements Comparable<Object> {
     /** Return the character's name. */
     public String getName() { return name; }
 
-    /** Return a character's hit point (health). */
+    /** Return a character's hit points (health). */
     public int getHitPoints() { return hitPoints; }
 
     /** Return the character's attack speed. */
     public int getAttackSpeed() { return attackSpeed; }
 
     /**
-     * addHitPoints is used to increment the hitPoints a dungeon character has.
+     * Increments the hitPoints that a dungeon character has.
      *
      * This method calls: 		 Nothing.
      * This method is called by: Heal method of monsters and Sorcerers.
@@ -65,15 +63,14 @@ public abstract class DungeonCharacter implements Comparable<Object> {
             System.out.println("Hitpoint amount must be positive.");
         } else {
             this.hitPoints += hitPoints;
-            // TODO: Figure out what to do with this.
-            // System.out.println("Remaining Hit Points: " + hitPoints);
         }
     }
 
     /**
-     * subtractHitPoints is used to decrement the hitPoints a dungeon character has. It
-     * also reports the damage and remaining hit points (these things could be done in
-     * separate methods to make code more modular ;-)
+     * Decrements the hitPoints a dungeon character has.
+     *
+     * TODO: It also reports the damage and remaining hit points (these things could be
+     *       done in separate methods to make code more modular ;-)
      *
      * This method calls: 		 Nothing.
      * This method is called by: Overridden versions in Hero and Monster.
@@ -103,7 +100,8 @@ public abstract class DungeonCharacter implements Comparable<Object> {
     }
 
     /**
-     * isAlive is used to see if a character is still alive by checking hit points.
+     * Used to see if a character is still alive by checking their hit
+     * points.
      *
      * This method calls: 		 Nothing.
      * This method is called by: Unknown (intended for external use)
@@ -113,7 +111,7 @@ public abstract class DungeonCharacter implements Comparable<Object> {
     public boolean isAlive() { return (hitPoints > 0); }
 
     /**
-     * attack allows character to attempt attack on opponent.  First, chance to hit is
+     * Allows characters to attempt an attack on an opponent. First, chance to hit is
      * considered. If a hit can occur, then the damage is calculated based on
      * character's damage range. This damage is then applied to the opponent.
      *
@@ -127,7 +125,6 @@ public abstract class DungeonCharacter implements Comparable<Object> {
         boolean canAttack = Math.random() <= chanceToHit;
         int     damage;
 
-
         if (canAttack) {
             damage = randomInt.nextInt(damageMax - damageMin + 1) + damageMin;
 
@@ -139,5 +136,10 @@ public abstract class DungeonCharacter implements Comparable<Object> {
         System.out.println();
     }
 
-    public abstract void battleChoices(DungeonCharacter theMonster);
+    /**
+     * Abstract of the battleChoices class.
+     *
+     * @param opponent The opponent to be fought.
+     */
+    public abstract void battleChoices(DungeonCharacter opponent);
 }

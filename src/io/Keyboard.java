@@ -2,28 +2,25 @@ package io;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
  * Facilitates keyboard input by abstracting details about input parsing, conversions,
  * and exception handling.
- *
- * TODO: Implement singleton pattern on the keyboard.
  */
 public class Keyboard {
-    /// Output Color
-    public static final String          RED = (char) 27 + "[31m";
-    public static final String          NC  = (char) 27 + "[0m";
+    /// Output text color.
+    public static final String RED = (char) 27 + "[31m";
+    public static final String NC  = (char) 27 + "[0m";
 
-    // Tokenized Input Stream Variables
+    /// Tokenized Input Stream Variables.
     private static String               currentToken = null;
     private static StringTokenizer      reader;
     private static final BufferedReader in
             = new BufferedReader(new InputStreamReader(System.in));
 
     /**
-     * Prints the error message.
+     * Prints out a specified error message.
      *
      * @param errorString Error text to be printed.
      */
@@ -31,7 +28,7 @@ public class Keyboard {
         System.out.println(RED + errorString + NC);
     }
 
-    /** Gets the next input token assuming it may be on subsequent input lines. */
+    /** Gets the next input token, assuming it may be on subsequent input lines. */
     private static String getNextToken() { return getNextToken(true); }
 
     /**
@@ -72,15 +69,16 @@ public class Keyboard {
                 reader = new StringTokenizer(in.readLine(), delimiters, true);
             }
 
-            while (token == null || ((delimiters.indexOf(token) >= 0) && skip)) {
+            while (token == null || ((delimiters.contains(token)) && skip)) {
                 while (! reader.hasMoreTokens()) {
                     reader = new StringTokenizer(in.readLine(), delimiters, true);
                 }
 
                 token = reader.nextToken();
             }
-
-        } catch (Exception exception) { token = null; }
+        } catch (Exception exception) {
+            token = null;
+        }
 
         return token;
     }
@@ -95,35 +93,15 @@ public class Keyboard {
 
         try {
             str = new StringBuilder(getNextToken(false));
-            while (! endOfLine()) { str.append(getNextToken(false)); }
+            while (! endOfLine()) {
+                str.append(getNextToken(false));
+            }
         } catch (Exception exception) {
             error("Error reading String data, null value returned.");
             str = null;
         }
         assert str != null;
         return str.toString();
-    }
-
-    /** Returns a character read from standard input. */
-    public static char readChar() {
-        String token = getNextToken(false);
-        char   value;
-
-        try {
-            if (token.length() > 1) {
-                currentToken = token.substring(1);
-            } else {
-                currentToken = null;
-            }
-
-
-            value = token.charAt(0);
-        } catch (Exception exception) {
-            error("Error reading char data, MIN_VALUE value returned.");
-            value = Character.MIN_VALUE;
-        }
-
-        return value;
     }
 
     /** Returns an integer read from standard input. */

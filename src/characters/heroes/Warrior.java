@@ -37,6 +37,9 @@ public class Warrior extends Hero {
         }
     }
 
+    /**
+     * @param opponent The opponent being attacked.
+     */
     @Override
     public void attack(DungeonCharacter opponent) {
         System.out.println(name + " swings a mighty sword at " + opponent.getName()
@@ -44,6 +47,9 @@ public class Warrior extends Hero {
         super.attack(opponent);
     }
 
+    /**
+     * @param opponent The opponent to attack.
+     */
     @Override
     public void battleChoices(DungeonCharacter opponent) {
         int choice;
@@ -71,6 +77,6 @@ public class Warrior extends Hero {
                 System.out.println("Number of turns remaining is: " + numTurns);
             }
 
-        } while (numTurns > 0);
+        } while (numTurns > 0 && hitPoints > 0 && opponent.getHitPoints() > 0);
     }
 }

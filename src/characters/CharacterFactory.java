@@ -3,7 +3,13 @@ package characters;
 import characters.heroes.*;
 import characters.monsters.*;
 
+/** In charge of instantiating a new character. */
 public class CharacterFactory {
+    /**
+     * Return a new instance of the specified character type.
+     *
+     * @param characterType The character to be played as.
+     */
     public DungeonCharacter getCharacter(String characterType) {
         switch (characterType.toLowerCase()) {
             case "warrior": return new Warrior();

@@ -10,12 +10,12 @@ import io.Keyboard;
  */
 public abstract class Hero extends DungeonCharacter {
     protected double chanceToBlock;
-    // If a hero is faster than opponent, their is a possibility for more than one
+    // If a hero is faster than opponent, there is a possibility for more than one
     // attack per round of battle.
     protected int    numTurns;
 
     /**
-     * calls base constructor and gets name of hero from user.
+     * Call the base constructor and get the name of hero from the user.
      *
      * @param name		    Name of character.
      * @param hitPoints	    Points of damage a character can take before killed.
@@ -37,22 +37,15 @@ public abstract class Hero extends DungeonCharacter {
         readName();
     }
 
-    /**
-     * readName obtains a name for the hero from the user.
-     *
-     * This method calls: 		 Nothing.
-     * This method is called by: Hero constructor.
-     */
+    /** Obtains the name for the hero specified by the user. */
     public void readName() {
         System.out.print("Enter character name: ");
         name = Keyboard.readString();
     }
 
     /**
-     * subtractHitPoints checks to see if hero blocked attack, if so a message is
-     * displayed, otherwise base version of this method is invoked to perform the
-     * subtraction operation.  This method overrides the method inherited from
-     * DungeonCharacter promoting polymorphic behavior.
+     * Check if the hero blocked the attack, and if so a message is displayed, otherwise
+     * the base version of this method is invoked to perform the subtraction operation.
      *
      * @param hitPoints The number of hit points to subtract.
      */
@@ -67,12 +60,10 @@ public abstract class Hero extends DungeonCharacter {
 
     /**
      * battleChoices will be overridden in derived classes. It computes the number of
-     * turns a hero will get per round based on the opponent that is being fought. The
-     * number of turns is reported to the user.  This stuff might go better in another
-     * method that is invoked from this one...
+     * turns a hero will get per round based on the opponent that is being fought.
      *
-     * This method calls:        getAttackSpeed().
-     * This method is called by: External sources.
+     * TODO: The number of turns is reported to the user. This stuff might go better in
+     *       another method that is invoked from this one...
      *
      * @param opponent The opponent to attack.
      */

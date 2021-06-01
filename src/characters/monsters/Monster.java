@@ -38,12 +38,10 @@ public abstract class Monster extends DungeonCharacter {
         this.minHeal      = minHeal;
     }
 
-    /** ... */
+    /** Monsters have a chance to heal themselves. */
     public void heal() {
-        boolean canHeal;
+        boolean canHeal = (Math.random() <= chanceToHeal) && (hitPoints > 0);
         int     healPoints;
-
-        canHeal = (Math.random() <= chanceToHeal) && (hitPoints > 0);
 
         if (canHeal) {
             healPoints = randomInt.nextInt(maxHeal - minHeal + 1);
@@ -54,6 +52,11 @@ public abstract class Monster extends DungeonCharacter {
         }
     }
 
+    /**
+     * Additionally calls the heal method.
+     *
+     * @param hitPoints The number of hit points to subtract.
+     */
     @Override
     public void subtractHitPoints(int hitPoints) {
         super.subtractHitPoints(hitPoints);

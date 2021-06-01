@@ -5,7 +5,7 @@
 ### Added
 
 - Add javadocs inside of `/docs`.
-- Implmented the Abstract Factory Pattern.
+- Implemented the Abstract Factory Pattern.
 
 ### Changed
 
@@ -17,7 +17,7 @@
 - Reformat coding style using `clang_format`.
 - Removed unnecessary `token.length()` from `io.Keyboard.readChar()`.
 - Removed a Hero type variable declaration from `Dungeon.chooseHero()`, as it was not used.
-- Removed `readDouble`, `readFloat`, `readWord`, `readBoolean`, `setPrintErrors`, `getPrintErrors`, `getErrorCount`, `resetErrorCount`, and `readLong` from `io.Keyboard` because they are never used.
+- Removed `readChar`, `readDouble`, `readFloat`, `readWord`, `readBoolean`, `setPrintErrors`, `getPrintErrors`, `getErrorCount`, `resetErrorCount`, and `readLong` from `io.Keyboard` because they are never used.
 - The method `io.Keyboard.readString()` now uses StringBuilder instead of String.
 - Implemented SonarLint rule java:S6212 - Local-Variable Type Inference should be used ([reference](https://rules.sonarsource.com/java/type/Code%20Smell/RSPEC-6212?search=Local-Variable%20Type%20Inference%20should%20be%20used)).
 - Where not required, replace imports using `*` with only the required classes/methods, and vise versa.
@@ -25,10 +25,9 @@
 - Moved variables declared on the same line, to their own seperate line for better readability.
 - Constructor of abstract classes have been made `protected`.
 - Removed the `characters.heroes.Hero.defend()` method.
-- Throw errors where neccessary.
-    - Be more specific !!!!!!!
-- ...
+- Error output is now done in red text.
 
 ### Fixed
 
-- The number of turns will no longer go down when inputing an invalid battle action option.
+- The number of turns will no longer go down when inputting an invalid battle action option.
+- Fixed problem where (for Sorceress and Thief) if the monster was killed, the game would not end if the hero still had more turns.

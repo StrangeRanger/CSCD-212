@@ -32,6 +32,9 @@ public class Sorceress extends Hero {
         System.out.println();
     }
 
+    /**
+     * @param opponent The opponent being attacked.
+     */
     @Override
     public void attack(DungeonCharacter opponent) {
         System.out.println(name + " casts a spell of fireball at " + opponent.getName()
@@ -39,6 +42,9 @@ public class Sorceress extends Hero {
         super.attack(opponent);
     }
 
+    /**
+     * @param opponent The opponent to attack.
+     */
     @Override
     public void battleChoices(DungeonCharacter opponent) {
         super.battleChoices(opponent);

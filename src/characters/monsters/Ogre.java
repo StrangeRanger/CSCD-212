@@ -21,6 +21,9 @@ public class Ogre extends Monster {
         super("Oscar the Ogre", 200, 2, .6, .1, 30, 50, 30, 50);
     }
 
+    /**
+     * @param opponent The opponent being attacked.
+     */
     @Override
     public void attack(DungeonCharacter opponent) {
         System.out.println(name + " slowly swings a club toward's " + opponent.getName()
@@ -31,7 +34,7 @@ public class Ogre extends Monster {
     @Override
     public void battleChoices(DungeonCharacter theMonster) {
         /*
-        battleChoice is not used in this class, but must be implemented in one way or
+        battleChoices is not used in this class, but must be implemented in one way or
         another.
          */
     }

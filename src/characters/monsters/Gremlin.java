@@ -21,6 +21,9 @@ public class Gremlin extends Monster {
         super("Gnarltooth the Gremlin", 70, 5, .8, .4, 15, 30, 20, 40);
     }
 
+    /**
+     * @param opponent The opponent being attacked.
+     */
     @Override
     public void attack(DungeonCharacter opponent) {
         System.out.println(name + " jabs his kris at " + opponent.getName() + ":");
@@ -28,9 +31,9 @@ public class Gremlin extends Monster {
     }
 
     @Override
-    public void battleChoices(DungeonCharacter theMonster) {
+    public void battleChoices(DungeonCharacter opponent) {
         /*
-        battleChoice is not used in this class, but must be implemented in one way or
+        battleChoices is not used in this class, but must be implemented in one way or
         another.
          */
     }
