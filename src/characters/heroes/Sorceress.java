@@ -61,9 +61,7 @@ public class Sorceress extends Hero {
                 case 1: attack(opponent); break;
                 case 2: increaseHitPoints(); break;
                 default:
-                    System.out.println(Keyboard.RED
-                                       + "Invalid option: choose either options 1 or 2"
-                                       + Keyboard.NC);
+                    System.out.println("Invalid option: choose either options 1 or 2");
                     continue;
             }
             System.out.println();

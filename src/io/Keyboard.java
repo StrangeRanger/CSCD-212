@@ -9,11 +9,7 @@ import java.util.StringTokenizer;
  * and exception handling.
  */
 public class Keyboard {
-    /// Output text color.
-    public static final String RED = (char) 27 + "[31m";
-    public static final String NC  = (char) 27 + "[0m";
-
-    /// Tokenized Input Stream Variables.
+    // Tokenized Input Stream Variables.
     private static String               currentToken = null;
     private static StringTokenizer      reader;
     private static final BufferedReader in
@@ -25,7 +21,7 @@ public class Keyboard {
      * @param errorString Error text to be printed.
      */
     private static void error(String errorString) {
-        System.out.println(RED + errorString + NC);
+        System.out.println(errorString);
     }
 
     /** Gets the next input token, assuming it may be on subsequent input lines. */

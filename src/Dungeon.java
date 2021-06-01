@@ -51,9 +51,7 @@ public class Dungeon {
                 case 2: return characterFactory.getCharacter("Sorceress");
                 case 3: return characterFactory.getCharacter("Thief");
                 default:
-                    System.out.println(Keyboard.RED
-                                       + "Invalid option: choose between options 1-3"
-                                       + Keyboard.NC);
+                    System.out.println("Invalid option: choose between options 1-3");
             }
         }
     }
