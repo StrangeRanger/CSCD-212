@@ -34,10 +34,8 @@ public class Keyboard {
     /**
      * Gets the next input token, which may already have been read.
      *
-     * TODO: Add more to method comments.
-     *
-     * @param skip ...
-     * @return 	   ...
+     * @param skip ???
+     * @return 	   Next input token.
      */
     private static String getNextToken(boolean skip) {
         String token;
@@ -53,12 +51,10 @@ public class Keyboard {
 
     /**
      * Gets the next token from the input, which may come from the current input line or
-     * a subsequent one. The parameter determines if subsequent lines are used.
+     * a subsequent one.
      *
-     * TODO: Add more to method comments.
-     *
-     * @param skip ...
-     * @return     ...
+     * @param skip ???
+     * @return     Input token.
      */
     private static String getNextInputToken(boolean skip) {
         final var delimiters = " \t\n\r\f";
@@ -87,7 +83,11 @@ public class Keyboard {
     public static boolean endOfLine() { return ! reader.hasMoreTokens(); }
 
 
-    /** Returns a string read from standard input. */
+    /**
+     * Returns a string read from standard input.
+     *
+     * @return The string entered by the user.
+     */
     public static String readString() {
         StringBuilder str;
 
@@ -104,7 +104,11 @@ public class Keyboard {
         return str.toString();
     }
 
-    /** Returns an integer read from standard input. */
+    /**
+     * Returns an integer read from standard input.
+     *
+     * @return The integer entered by the user.
+     */
     public static int readInt() {
         String token = getNextToken();
         int    value;

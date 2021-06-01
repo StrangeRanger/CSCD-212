@@ -53,9 +53,6 @@ public abstract class DungeonCharacter implements Comparable<Object> {
     /**
      * Increments the hitPoints that a dungeon character has.
      *
-     * This method calls: 		 Nothing.
-     * This method is called by: Heal method of monsters and Sorcerers.
-     *
      * @param hitPoints The number of hit points to add.
      */
     public void addHitPoints(int hitPoints) {
@@ -71,9 +68,6 @@ public abstract class DungeonCharacter implements Comparable<Object> {
      *
      * TODO: It also reports the damage and remaining hit points (these things could be
      *       done in separate methods to make code more modular ;-)
-     *
-     * This method calls: 		 Nothing.
-     * This method is called by: Overridden versions in Hero and Monster.
      *
      * @param hitPoints The number of hit points to subtract.
      */
@@ -91,10 +85,10 @@ public abstract class DungeonCharacter implements Comparable<Object> {
                                + " for <" + hitPoints + "> points damage.");
             System.out.println(getName() + " now has " + getHitPoints()
                                + " hit points remaining.");
-            System.out.println();
         }
 
         if (this.hitPoints == 0) {
+        	System.out.println();
             System.out.println(name + " has been killed :-(");
         }
     }
@@ -102,9 +96,6 @@ public abstract class DungeonCharacter implements Comparable<Object> {
     /**
      * Used to see if a character is still alive by checking their hit
      * points.
-     *
-     * This method calls: 		 Nothing.
-     * This method is called by: Unknown (intended for external use)
      *
      * @return True if hero is alive, false otherwise.
      */
@@ -114,10 +105,6 @@ public abstract class DungeonCharacter implements Comparable<Object> {
      * Allows characters to attempt an attack on an opponent. First, chance to hit is
      * considered. If a hit can occur, then the damage is calculated based on
      * character's damage range. This damage is then applied to the opponent.
-     *
-     * This method calls:        Math.random(), subtractHitPoints().
-     * This method is called by: Overridden versions of the method in monster and hero
-     * 						 	 classes and externally
      *
      * @param opponent The opponent being attacked.
      */
@@ -133,11 +120,10 @@ public abstract class DungeonCharacter implements Comparable<Object> {
             System.out.println(getName() + "'s attack on " + opponent.getName()
                                + " failed!");
         }
-        System.out.println();
     }
 
     /**
-     * Abstract of the battleChoices class.
+     * Abstract of the battleChoices class, to be implemented by the Hero class.
      *
      * @param opponent The opponent to be fought.
      */

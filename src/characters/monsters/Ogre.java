@@ -6,7 +6,8 @@ import characters.DungeonCharacter;
 public class Ogre extends Monster {
     /** Constructor. */
     public Ogre() {
-        /* super(
+        /* 
+         * super(
          *      name         = "Oscar the Ogre"
          *      hitPoints    = 200
          *      attackSpeed  = 2
@@ -29,13 +30,14 @@ public class Ogre extends Monster {
         System.out.println(name + " slowly swings a club toward's " + opponent.getName()
                            + ":");
         super.attack(opponent);
+        System.out.println();
     }
 
     @Override
     public void battleChoices(DungeonCharacter theMonster) {
-        /*
-        battleChoices is not used in this class, but must be implemented in one way or
-        another.
+    	/* 
+         * battleChoices is not used in this class, but must be implemented in one way
+         * or another.
          */
     }
 }

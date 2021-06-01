@@ -61,6 +61,7 @@ public class Warrior extends Hero {
             System.out.println("2. Crushing Blow on Opponent");
             System.out.print("Choose an option: ");
             choice = Keyboard.readInt();
+            System.out.println();
 
             switch (choice) {
                 case 1: attack(opponent); break;
@@ -71,6 +72,7 @@ public class Warrior extends Hero {
                                        + Keyboard.NC);
                     continue;
             }
+            System.out.println();
 
             numTurns--;
             if (numTurns > 0) {

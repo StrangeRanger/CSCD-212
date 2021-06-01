@@ -55,6 +55,7 @@ public class Sorceress extends Hero {
             System.out.println("2. Increase Hit Points");
             System.out.print("Choose an option: ");
             choice = Keyboard.readInt();
+            System.out.println();
 
             switch (choice) {
                 case 1: attack(opponent); break;
@@ -65,6 +66,7 @@ public class Sorceress extends Hero {
                                        + Keyboard.NC);
                     continue;
             }
+            System.out.println();
 
             numTurns--;
             if (numTurns > 0) {

@@ -6,7 +6,8 @@ import characters.DungeonCharacter;
 public class Skeleton extends Monster {
     /** Constructor. */
     public Skeleton() {
-        /* super(
+        /* 
+         * super(
          *      name         = "Sargath the Skeleton"
          *      hitPoints    = 100
          *      attackSpeed  = 3
@@ -29,13 +30,14 @@ public class Skeleton extends Monster {
         System.out.println(name + " slices his rusty blade at " + opponent.getName()
                            + ":");
         super.attack(opponent);
+        System.out.println();
     }
 
     @Override
     public void battleChoices(DungeonCharacter theMonster) {
-        /*
-        battleChoices is not used in this class, but must be implemented in one way or
-        another.
+    	/* 
+         * battleChoices is not used in this class, but must be implemented in one way
+         * or another.
          */
     }
 }

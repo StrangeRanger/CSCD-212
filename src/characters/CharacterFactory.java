@@ -18,8 +18,9 @@ public class CharacterFactory {
             case "ogre": return new Ogre();
             case "gremlin": return new Gremlin();
             case "skeleton": return new Skeleton();
-            // TODO: Added custom text to thrown exception.
-            default: throw new IllegalArgumentException();
+            default: throw new IllegalArgumentException("Internal Error: "
+            		+ "getCharacter attempted to generate character that doesn't "
+            		+ "exist\nCharacter " + characterType);
         }
     }
 }

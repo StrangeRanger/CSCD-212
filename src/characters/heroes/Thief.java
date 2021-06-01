@@ -54,6 +54,7 @@ public class Thief extends Hero {
             System.out.println("2. Surprise Attack");
             System.out.print("Choose an option: ");
             choice = Keyboard.readInt();
+            System.out.println();
 
             switch (choice) {
                 case 1: attack(opponent); break;
@@ -64,6 +65,7 @@ public class Thief extends Hero {
                                        + Keyboard.NC);
                     continue;
             }
+            System.out.println();
 
             numTurns--;
             if (numTurns > 0) {

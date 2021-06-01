@@ -6,7 +6,8 @@ import characters.DungeonCharacter;
 public class Gremlin extends Monster {
     /** Constructor. */
     public Gremlin() {
-        /* super(
+        /* 
+         * super(
          *      name         = "Gnarltooth the Gremlin"
          *      hitPoints    = 70
          *      attackSpeed  = 5
@@ -28,13 +29,14 @@ public class Gremlin extends Monster {
     public void attack(DungeonCharacter opponent) {
         System.out.println(name + " jabs his kris at " + opponent.getName() + ":");
         super.attack(opponent);
+        System.out.println();
     }
 
     @Override
     public void battleChoices(DungeonCharacter opponent) {
-        /*
-        battleChoices is not used in this class, but must be implemented in one way or
-        another.
+        /* 
+         * battleChoices is not used in this class, but must be implemented in one way
+         * or another.
          */
     }
 }

@@ -41,10 +41,9 @@ public class Dungeon {
 
         while (true) {
             System.out.println("Choose a hero:\n"
-                               + "  1. Warrior\n"
-                               + "  2. Sorceress\n"
-                               + "  3. Thief");
-
+                               + "1. Warrior\n"
+                               + "2. Sorceress\n"
+                               + "3. Thief");
             choice = Keyboard.readInt();
 
             switch (choice) {
@@ -71,8 +70,11 @@ public class Dungeon {
             case 1: return characterFactory.getCharacter("Ogre");
             case 2: return characterFactory.getCharacter("Gremlin");
             case 3: return characterFactory.getCharacter("Skeleton");
-            // TODO: Added custom text to thrown exception.
-            default: throw new IllegalArgumentException();
+            default:
+                throw new IllegalArgumentException(
+                        "Internal Error: generateMonster "
+                        + "attempted to generate a monster that doesn't exist\nChoice: "
+                        + choice);
         }
     }
 
@@ -113,9 +115,10 @@ public class Dungeon {
                 theMonster.attack(theHero);
             }
 
-            // Let the player bail out if desired.
-            System.out.print("\n-->q to quit, anything else to continue: ");
+            /// Let the player bail out if desired.
+            System.out.print("--> q to quit, anything else to continue: ");
             pause = Keyboard.readString();
+            System.out.println();
         }
 
         if (! theMonster.isAlive()) {
