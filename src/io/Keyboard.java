@@ -2,6 +2,7 @@ package io;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
@@ -11,6 +12,10 @@ import java.util.StringTokenizer;
  * TODO: Implement singleton pattern on the keyboard.
  */
 public class Keyboard {
+    /// Output Color
+    public static final String          RED = (char) 27 + "[31m";
+    public static final String          NC  = (char) 27 + "[0m";
+
     // Tokenized Input Stream Variables
     private static String               currentToken = null;
     private static StringTokenizer      reader;
@@ -18,11 +23,13 @@ public class Keyboard {
             = new BufferedReader(new InputStreamReader(System.in));
 
     /**
-     * Prints the error messagE.
+     * Prints the error message.
      *
-     * @param str Error text to be printed.
+     * @param errorString Error text to be printed.
      */
-    private static void error(String str) { System.out.println(str); }
+    private static void error(String errorString) {
+        System.out.println(RED + errorString + NC);
+    }
 
     /** Gets the next input token assuming it may be on subsequent input lines. */
     private static String getNextToken() { return getNextToken(true); }

@@ -6,7 +6,19 @@ import io.Keyboard;
 /** Thief character. */
 public class Thief extends Hero {
     /** Constructor. */
-    public Thief() { super("Thief", 75, 6, .8, 20, 40, .5); }
+    public Thief() {
+        /* super(
+         *      name          = "Thief"  // To be overwritten in parent class.
+         *      hitPoints     = 75
+         *      attackSpeed   = 6
+         *      chanceToHit   = .8
+         *      damageMin     = 20
+         *      damageMax     = 40
+         *      chanceToBlock = .5
+         * )
+         */
+        super("Thief", 75, 6, .8, 20, 40, .5);
+    }
 
     /**
      * Special move.
@@ -43,7 +55,11 @@ public class Thief extends Hero {
             switch (choice) {
                 case 1: attack(opponent); break;
                 case 2: surpriseAttack(opponent); break;
-                default: System.out.println("invalid choice!");
+                default:
+                    System.out.println(Keyboard.RED
+                                       + "Invalid option: choose either options 1 or 2"
+                                       + Keyboard.NC);
+                    continue;
             }
 
             numTurns--;

@@ -49,29 +49,16 @@ public abstract class Hero extends DungeonCharacter {
     }
 
     /**
-     * defend determines if hero blocks attack.
-     *
-     * This method calls:        Math.random().
-     * This method is called by: subtractHitPoints().
-     *
-     * @return True if attack is blocked, false otherwise.
-     */
-    public boolean defend() { return Math.random() <= chanceToBlock; }
-
-    /**
      * subtractHitPoints checks to see if hero blocked attack, if so a message is
      * displayed, otherwise base version of this method is invoked to perform the
      * subtraction operation.  This method overrides the method inherited from
      * DungeonCharacter promoting polymorphic behavior.
      *
-     * This method calls:        defend() or base version of method.
-     * This method is called by: attack() from base class.
-     *
      * @param hitPoints The number of hit points to subtract.
      */
     @Override
     public void subtractHitPoints(int hitPoints) {
-        if (defend()) {
+        if (Math.random() <= chanceToBlock) {
             System.out.println(name + " BLOCKED the attack!");
         } else {
             super.subtractHitPoints(hitPoints);
@@ -92,7 +79,9 @@ public abstract class Hero extends DungeonCharacter {
     public void battleChoices(DungeonCharacter opponent) {
         numTurns = attackSpeed / opponent.getAttackSpeed();
 
-        if (numTurns == 0) { numTurns++; }
+        if (numTurns == 0) {
+            numTurns++;
+        }
 
         System.out.println("Number of turns this round is: " + numTurns);
     }

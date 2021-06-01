@@ -6,7 +6,19 @@ import io.Keyboard;
 /** Warrior character. */
 public class Warrior extends Hero {
     /** Constructor. */
-    public Warrior() { super("Warrior", 125, 4, .8, 35, 60, .2); }
+    public Warrior() {
+        /* super(
+         *      name          = "Warrior"  // To be overwritten in parent class.
+         *      hitPoints     = 125
+         *      attackSpeed   = 4
+         *      chanceToHit   = .8
+         *      damageMin     = 35
+         *      damageMax     = 60
+         *      chanceToBlock = .2
+         * )
+         */
+        super("Warrior", 125, 4, .8, 35, 60, .2);
+    }
 
     /**
      * Special move.
@@ -47,7 +59,11 @@ public class Warrior extends Hero {
             switch (choice) {
                 case 1: attack(opponent); break;
                 case 2: crushingBlow(opponent); break;
-                default: System.out.println("invalid choice!");
+                default:
+                    System.out.println(Keyboard.RED
+                                       + "Invalid option: choose either options 1 or 2"
+                                       + Keyboard.NC);
+                    continue;
             }
 
             numTurns--;

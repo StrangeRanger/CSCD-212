@@ -5,15 +5,26 @@ import io.Keyboard;
 
 /** Sorceress character. */
 public class Sorceress extends Hero {
-    public final int MIN_ADD = 25;
-    public final int MAX_ADD = 50;
-
     /** Constructor. */
-    public Sorceress() { super("Sorceress", 75, 5, .7, 25, 50, .3); }
+    public Sorceress() {
+        /* super(
+         *      name          = "Sorceress"  // To be overwritten in parent class.
+         *      hitPoints     = 75
+         *      attackSpeed   = 5
+         *      chanceToHit   = .7
+         *      damageMin     = 25
+         *      damageMax     = 50
+         *      chanceToBlock = .3
+         * )
+         */
+        super("Sorceress", 75, 5, .7, 25, 50, .3);
+    }
 
     /** Special move. */
     public void increaseHitPoints() {
-        var hPoints = randomInt.nextInt(MAX_ADD - MIN_ADD + 1) + MIN_ADD;
+        var minAdd  = 25;
+        var maxAdd  = 50;
+        var hPoints = randomInt.nextInt(maxAdd - minAdd + 1) + minAdd;
 
         addHitPoints(hPoints);
         System.out.println(name + " added [" + hPoints + "] points.\n"
@@ -42,14 +53,17 @@ public class Sorceress extends Hero {
             switch (choice) {
                 case 1: attack(opponent); break;
                 case 2: increaseHitPoints(); break;
-                default: System.out.println("invalid choice!");
+                default:
+                    System.out.println(Keyboard.RED
+                                       + "Invalid option: choose either options 1 or 2"
+                                       + Keyboard.NC);
+                    continue;
             }
 
             numTurns--;
             if (numTurns > 0) {
                 System.out.println("Number of turns remaining is: " + numTurns);
             }
-
         } while (numTurns > 0 && hitPoints > 0 && opponent.getHitPoints() > 0);
     }
 }

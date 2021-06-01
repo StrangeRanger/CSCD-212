@@ -40,8 +40,8 @@ BraceWrapping:
   AfterCaseLabel:  false
   AfterClass:      false
   #AfterClass:      true
-  #AfterControlStatement: MultiLine
-  AfterControlStatement: Never
+  AfterControlStatement: MultiLine
+  #AfterControlStatement: Never
   AfterEnum:       false
   AfterFunction:   false
   #AfterFunction:   true
@@ -233,4 +233,3 @@ WhitespaceSensitiveMacros:
   - CF_SWIFT_NAME
 ...
 # This comment and/or a space must exist after '...', else an error will be produced
-

@@ -1,16 +1,18 @@
 package characters;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /** Abstract Base class for inheritance hierarchy for a role playing game. */
 public abstract class DungeonCharacter implements Comparable<Object> {
-    protected String name;
-    protected int    hitPoints;
-    protected int    attackSpeed;
-    protected double chanceToHit;
-    protected int    damageMin;
-    protected int    damageMax;
-    protected Random randomInt = new Random();
+    protected String  name;
+    protected int     hitPoints;
+    protected int     attackSpeed;
+    protected double  chanceToHit;
+    protected int     damageMin;
+    protected int     damageMax;
+    protected Random  randomInt = new Random();
+    protected Scanner userInput = new Scanner(System.in);
 
     @Override
     public int compareTo(Object o) {
@@ -18,8 +20,7 @@ public abstract class DungeonCharacter implements Comparable<Object> {
     }
 
     /**
-     * Explicit constructor to initialize instance variables -- it is called by derived
-     * classes.
+     * Explicit constructor to initialize instance variables.
      *
      * @param name		  Name of character.
      * @param hitPoints	  Points of damage a character can take before killed.
@@ -85,7 +86,9 @@ public abstract class DungeonCharacter implements Comparable<Object> {
         } else if (hitPoints > 0) {
             this.hitPoints -= hitPoints;
 
-            if (this.hitPoints < 0) { this.hitPoints = 0; }
+            if (this.hitPoints < 0) {
+                this.hitPoints = 0;
+            }
 
             System.out.println(getName() + " hit "
                                + " for <" + hitPoints + "> points damage.");
@@ -94,7 +97,9 @@ public abstract class DungeonCharacter implements Comparable<Object> {
             System.out.println();
         }
 
-        if (this.hitPoints == 0) { System.out.println(name + " has been killed :-("); }
+        if (this.hitPoints == 0) {
+            System.out.println(name + " has been killed :-(");
+        }
     }
 
     /**
@@ -133,4 +138,6 @@ public abstract class DungeonCharacter implements Comparable<Object> {
         }
         System.out.println();
     }
+
+    public abstract void battleChoices(DungeonCharacter theMonster);
 }

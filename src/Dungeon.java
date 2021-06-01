@@ -1,7 +1,6 @@
 import java.util.Random;
-
-import characters.heroes.*;
-import characters.monsters.*;
+import characters.CharacterFactory;
+import characters.DungeonCharacter;
 import io.Keyboard;
 
 /**
@@ -16,12 +15,13 @@ import io.Keyboard;
  * Once a battle concludes, the user has the option of repeating the above.
  */
 public class Dungeon {
-    public static final Random randomInt = new Random();
+    private static final Random           randomInt        = new Random();
+    private static final CharacterFactory characterFactory = new CharacterFactory();
 
     /** Main method. */
     public static void main(String[] args) {
-        Hero    theHero;
-        Monster theMonster;
+        DungeonCharacter theHero;
+        DungeonCharacter theMonster;
 
         do {
             theHero    = chooseHero();
@@ -36,23 +36,26 @@ public class Dungeon {
      *
      * @return Return the specified hero [class].
      */
-    public static Hero chooseHero() {
+    public static DungeonCharacter chooseHero() {
         int choice;
 
-        System.out.println("Choose a hero:\n"
-                           + "  1. Warrior\n"
-                           + "  2. Sorceress\n"
-                           + "  3. Thief");
-        choice = Keyboard.readInt();
+        while (true) {
+            System.out.println("Choose a hero:\n"
+                               + "  1. Warrior\n"
+                               + "  2. Sorceress\n"
+                               + "  3. Thief");
 
-        // TODO: Use a while loop to force correct input?
-        switch (choice) {
-            case 1: return new Warrior();
-            case 2: return new Sorceress();
-            case 3: return new Thief();
-            default:
-                System.out.println("invalid choice, returning Thief");
-                return new Thief();
+            choice = Keyboard.readInt();
+
+            switch (choice) {
+                case 1: return characterFactory.getCharacter("Warrior");
+                case 2: return characterFactory.getCharacter("Sorceress");
+                case 3: return characterFactory.getCharacter("Thief");
+                default:
+                    System.out.println(Keyboard.RED
+                                       + "Invalid option: choose between options 1-3"
+                                       + Keyboard.NC);
+            }
         }
     }
 
@@ -62,17 +65,15 @@ public class Dungeon {
      *
      * @return Return a random monster [class].
      */
-    public static Monster generateMonster() {
+    public static DungeonCharacter generateMonster() {
         var choice = randomInt.nextInt(3) + 1;
 
-        // TODO: Use a while loop to force correct input?
         switch (choice) {
-            case 1: return new Ogre();
-            case 2: return new Gremlin();
-            case 3: return new Skeleton();
-            default:
-                System.out.println("invalid choice, returning Skeleton");
-                return new Skeleton();
+            case 1: return characterFactory.getCharacter("Ogre");
+            case 2: return characterFactory.getCharacter("Gremlin");
+            case 3: return characterFactory.getCharacter("Skeleton");
+            // TODO: Added custom text to thrown exception.
+            default: throw new IllegalArgumentException();
         }
     }
 
@@ -83,42 +84,45 @@ public class Dungeon {
      * @return Whether or not the user entered 'y' or 'n'.
      */
     public static boolean playAgain() {
-        char again;
+        String again;
 
-        System.out.println("Play again (y/n)?");
-        again = Keyboard.readChar();
+        System.out.println("Play again? [y/n]");
+        again = Keyboard.readString().toLowerCase();
 
-        return (again == 'Y' || again == 'y');
+        return (again.equals("y") || again.equals("yes"));
     }
 
-    // TODO: Add output to make it more clear when the hero and monster are
-    //       performing some action.
     /**
-     * battle is the actual combat portion of the game. It requires a Hero and a Monster
-     * to be passed in.  Battle occurs in rounds. The Hero goes first, then the Monster.
-     * At the conclusion of each round, the user has the option of quitting.
+     * Performs the combat portion of the game. Battles occur in rounds. The Hero goes
+     * first, then the Monster. At the conclusion of each round, the user has the option
+     * of quitting.
+     *
+     * TODO: Add output to make it more clear when the hero and monster are performing
+     *       some action.
      *
      * @param theHero 	 The Hero that will fight the monster.
      * @param theMonster The monster to be fought.
      */
-    public static void battle(Hero theHero, Monster theMonster) {
-        var pause = 'p';
+    public static void battle(DungeonCharacter theHero, DungeonCharacter theMonster) {
+        var pause = "";
         System.out.println(theHero.getName() + " battles " + theMonster.getName());
         System.out.println("---------------------------------------------");
 
         // Do battle
-        while (theHero.isAlive() && theMonster.isAlive() && pause != 'q') {
+        while (theHero.isAlive() && theMonster.isAlive() && ! pause.equals("q")) {
             // Hero goes first
             theHero.battleChoices(theMonster);
 
             // Monster's turn (provided it's still alive!)
-            if (theMonster.isAlive()) { theMonster.attack(theHero); }
+            if (theMonster.isAlive()) {
+                theMonster.attack(theHero);
+            }
 
             // Let the player bail out if desired
             System.out.print("\n-->q to quit, anything else to continue: ");
             // TODO: Make it possible to just press enter instead of requiring the user
             //       to enter a letter, then press [Enter].
-            pause = Keyboard.readChar();
+            pause = Keyboard.readString();
         }
 
         if (! theMonster.isAlive()) {
