@@ -27,8 +27,43 @@ Here is a list of most, if not all, the major/notable changes to the original co
 - Marked all methods that override another with `@Override`.
 - Moved variables declared on the same line, to their own separate line for better readability.
 - Constructor of abstract classes have been made `protected`.
+- Moved number of turns code to it's own method. 
 
 ### Fixed
 
 - The number of turns will no longer decrease when inputting an invalid battle action option.
 - Fixed a problem where (for Sorceress and Thief) if the monster was killed and the hero still had more turns, the game would not end.
+
+
+<!--- Changes sorted out in groups for group presentation
+- When checking if the user wants to play again, it looks for both `y` and `yes`, and forcefully makes the user input lowercase.
+- Constructor of abstract classes have been made `protected`.
+- Implemented SonarLint rule java:S6212 - Local-Variable Type Inference should be used ([reference](https://rules.sonarsource.com/java/type/Code%20Smell/RSPEC-6212?search=Local-Variable%20Type%20Inference%20should%20be%20used)).
+- Replaced (almost) all instances of `Math.random() * <some number>` with `java.util.Random.nextInt()`.
+- Replaced all instances of `token.toLowerCase().equals(<thing to equal>)` with `token.equalsIgnoreCase(<thing to equal>)`.
+
+
+- Marked all methods that override another with `@Override`.
+- Where not required, replace imports using `*` with only the required classes/methods, and vise versa.
+- Moved variables declared on the same line, to their own separate line for better readability.
+- Added new and updated existing comments.
+- Reformatted a snake_case variable with camalCase formatting.
+- Reformatted coding style using `clang_format`.
+- Added javadocs inside of `/docs`.
+- Modified file structure.
+
+
+- Removed unnecessary `token.length()` from `io.Keyboard.readChar()`.
+   - Following the YAGNI standard coding principle ("you aren't gonna need it": don't implement something until it is necessary).
+- Removed `readChar`, `readDouble`, `readFloat`, `readWord`, `readBoolean`, `setPrintErrors`, `getPrintErrors`, `getErrorCount`, `resetErrorCount`, and `readLong` from `io.Keyboard` because they are never used.
+   - Following the YAGNI standard coding principle ("you aren't gonna need it": don't implement something until it is necessary).
+- Removed the `characters.heroes.Hero.defend()` method.
+- The method `io.Keyboard.readString()` now uses StringBuilder instead of String. 
+- Moved number of turns code to it's own method. 
+
+
+- Implemented the Abstract Factory Pattern.
+- The number of turns will no longer decrease when inputting an invalid battle action option.
+- Fixed a problem where (for Sorceress and Thief) if the monster was killed and the hero still had more turns, the game would not end.
+- Added more `throw errors` in areas where possible unforeseen errors could occur.
+--->
