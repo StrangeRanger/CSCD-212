@@ -20,9 +20,8 @@ public class CharacterFactory {
             case "skeleton": return new Skeleton();
             default:
                 throw new IllegalArgumentException(
-                        "Internal Error: "
-                        + "getCharacter attempted to generate character that doesn't "
-                        + "exist\nCharacter " + characterType);
+                        "Internal Error: 'getCharacter' attempted to generate character"
+                        + " that doesn't exist\nCharacter: " + characterType);
         }
     }
 }
