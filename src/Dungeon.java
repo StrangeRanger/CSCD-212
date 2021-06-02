@@ -105,10 +105,10 @@ public class Dungeon {
 
         // Do battle.
         while (theHero.isAlive() && theMonster.isAlive() && ! pause.equals("q")) {
-            // Hero goes first.
+            /// Hero goes first.
             theHero.battleChoices(theMonster);
 
-            // Monster's turn (provided it's still alive!).
+            /// Monster's turn (provided it's still alive!).
             if (theMonster.isAlive()) {
                 theMonster.attack(theHero);
             }

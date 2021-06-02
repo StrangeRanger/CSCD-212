@@ -76,7 +76,6 @@ public class Warrior extends Hero {
             if (numTurns > 0) {
                 System.out.println("Number of turns remaining is: " + numTurns);
             }
-
         } while (numTurns > 0 && hitPoints > 0 && opponent.getHitPoints() > 0);
     }
 }
