@@ -48,13 +48,14 @@ public class Warrior extends Hero {
     }
 
     /**
+     * Provides the user with possible actions to perform during their turn.
+     *
      * @param opponent The opponent to attack.
      */
     @Override
     public void battleChoices(DungeonCharacter opponent) {
+        numOfTurns(opponent);
         int choice;
-
-        super.battleChoices(opponent);
 
         do {
             System.out.println("1. Attack Opponent");

@@ -58,16 +58,7 @@ public abstract class Hero extends DungeonCharacter {
         }
     }
 
-    /**
-     * battleChoices will be overridden in derived classes. It computes the number of
-     * turns a hero will get per round based on the opponent that is being fought.
-     *
-     * TODO: The number of turns is reported to the user. This stuff might go better in
-     *       another method that is invoked from this one...
-     *
-     * @param opponent The opponent to attack.
-     */
-    public void battleChoices(DungeonCharacter opponent) {
+    public void numOfTurns(DungeonCharacter opponent) {
         numTurns = attackSpeed / opponent.getAttackSpeed();
 
         if (numTurns == 0) {

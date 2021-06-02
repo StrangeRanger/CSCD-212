@@ -42,11 +42,13 @@ public class Thief extends Hero {
     }
 
     /**
+     * Provides the user with possible actions to perform during their turn.
+     *
      * @param opponent The opponent to attack.
      */
     @Override
     public void battleChoices(DungeonCharacter opponent) {
-        super.battleChoices(opponent);
+        numOfTurns(opponent);
         int choice;
 
         do {

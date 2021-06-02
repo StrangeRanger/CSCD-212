@@ -31,12 +31,4 @@ public class Gremlin extends Monster {
         super.attack(opponent);
         System.out.println();
     }
-
-    @Override
-    public void battleChoices(DungeonCharacter opponent) {
-        /*
-         * battleChoices is not used in this class, but must be implemented in one way
-         * or another.
-         */
-    }
 }

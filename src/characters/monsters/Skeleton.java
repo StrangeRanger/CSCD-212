@@ -32,12 +32,4 @@ public class Skeleton extends Monster {
         super.attack(opponent);
         System.out.println();
     }
-
-    @Override
-    public void battleChoices(DungeonCharacter theMonster) {
-        /*
-         * battleChoices is not used in this class, but must be implemented in one way
-         * or another.
-         */
-    }
 }

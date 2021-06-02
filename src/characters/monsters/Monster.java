@@ -63,4 +63,12 @@ public abstract class Monster extends DungeonCharacter {
         super.subtractHitPoints(hitPoints);
         heal();
     }
+
+    @Override
+    public void battleChoices(DungeonCharacter theMonster) {
+        /*
+         * battleChoices is not used in this class, but must be implemented in one way
+         * or another.
+         */
+    }
 }
