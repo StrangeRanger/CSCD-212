@@ -25,13 +25,8 @@ public abstract class Hero extends DungeonCharacter {
      * @param damageMax     Maximum amount of damage a character can inflict.
      * @param chanceToBlock The chance to block an opponents attack.
      */
-    protected Hero(String name,
-                   int    hitPoints,
-                   int    attackSpeed,
-                   double chanceToHit,
-                   int    damageMin,
-                   int    damageMax,
-                   double chanceToBlock) {
+    protected Hero(String name, int hitPoints, int attackSpeed, double chanceToHit,
+                   int damageMin, int damageMax, double chanceToBlock) {
         super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
         this.chanceToBlock = chanceToBlock;
         readName();
@@ -61,9 +56,7 @@ public abstract class Hero extends DungeonCharacter {
     public void numOfTurns(DungeonCharacter opponent) {
         numTurns = attackSpeed / opponent.getAttackSpeed();
 
-        if (numTurns == 0) {
-            numTurns++;
-        }
+        if (numTurns == 0) { numTurns++; }
 
         System.out.println("Number of turns this round is: " + numTurns);
     }

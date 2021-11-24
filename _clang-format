@@ -1,7 +1,6 @@
 ---
 Language:        Java
-# BasedOnStyle:  Chromium
-# ???
+# BasedOnStyle: None (originally Chromium)
 AccessModifierOffset: -1
 AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: AcrossComments
@@ -14,36 +13,30 @@ AlignTrailingComments: true
 AllowAllArgumentsOnNextLine: false
 AllowAllConstructorInitializersOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
-#AllowShortEnumsOnASingleLine: false
 AllowShortEnumsOnASingleLine: true
 AllowShortBlocksOnASingleLine: Always
-#AllowShortCaseLabelsOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: true
 AllowShortFunctionsOnASingleLine: Inline
 AllowShortLambdasOnASingleLine: Inline
-#AllowShortIfStatementsOnASingleLine: Never
 AllowShortIfStatementsOnASingleLine: WithoutElse
-#AllowShortLoopsOnASingleLine: false
 AllowShortLoopsOnASingleLine: true
-# Deprecated
-AlwaysBreakAfterDefinitionReturnType: None
+# Deprecated option
+#AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
-AlwaysBreakTemplateDeclarations: No
+AlwaysBreakTemplateDeclarations: MultiLine
+## Untouched
 AttributeMacros:
   - __capability
-#BinPackArguments: false
 BinPackArguments: true
-BinPackParameters: false
-BitFieldColonSpacing: Both
+BinPackParameters: true
+BitFieldColonSpacing: After
 BraceWrapping:
   AfterCaseLabel:  false
   AfterClass:      false
-  AfterControlStatement: MultiLine
-  #AfterControlStatement: Never
+  AfterControlStatement: Never
   AfterEnum:       false
   AfterFunction:   false
-  #AfterFunction:   true
   AfterNamespace:  false
   AfterObjCDeclaration: false
   AfterStruct:     false
@@ -57,37 +50,32 @@ BraceWrapping:
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
-BreakBeforeBinaryOperators: All
-#BreakBeforeConceptDeclarations: true
+BreakBeforeBinaryOperators: None
 BreakBeforeConceptDeclarations: false
 BreakBeforeBraces: Custom
-# Not located in configuration guide
-# BreakBeforeInheritanceComma: false
-#BreakInheritanceList: AfterColon
-BreakInheritanceList: BeforeColon
-BreakBeforeTernaryOperators: true
-# Not located in configuration guide
-# BreakConstructorInitializersBeforeComma: false
-#BreakConstructorInitializers: AfterColon
-BreakConstructorInitializers: BeforeColon
+# Deprecated option
+#BreakBeforeInheritanceComma: false
+BreakInheritanceList: AfterColon
+BreakBeforeTernaryOperators: false
+# Deprecated option
+#BreakConstructorInitializersBeforeComma: false
+BreakConstructorInitializers: AfterColon
 BreakAfterJavaFieldAnnotations: true
 BreakStringLiterals: true
 ColumnLimit:     88
 CommentPragmas:  '^ IWYU pragma:'
-#CompactNamespaces: true
 CompactNamespaces: false
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 ConstructorInitializerIndentWidth: 8
 ContinuationIndentWidth: 8
 Cpp11BracedListStyle: true
 DeriveLineEnding: true
-#DerivePointerAlignment: true
 DerivePointerAlignment: false
 DisableFormat:   false
-#EmptyLineBeforeAccessModifier: Leave
-EmptyLineBeforeAccessModifier: LogicalBlock
+EmptyLineBeforeAccessModifier: Leave  # ???
 ExperimentalAutoDetectBinPacking: false
-FixNamespaceComments: true
+FixNamespaceComments: false
+## Untouched
 ForEachMacros:
   - foreach
   - Q_FOREACH
@@ -122,8 +110,7 @@ IndentPPDirectives: AfterHash
 IndentExternBlock: Indent
 IndentRequires:  true
 IndentWidth:     4
-#IndentWrappedFunctionNames: true
-IndentWrappedFunctionNames: false
+IndentWrappedFunctionNames: true  # ???
 InsertTrailingCommas: None
 JavaImportGroups:
   - android
@@ -143,13 +130,13 @@ MacroBlockBegin: ''
 MacroBlockEnd:   ''
 MaxEmptyLinesToKeep: 2
 NamespaceIndentation: All
-# Come back to the ObjC stuff later...
+## All ObjC settings untouched
 ObjCBinPackProtocolList: Auto
 ObjCBlockIndentWidth: 4
 ObjCBreakBeforeNestedBlockParam: false
 ObjCSpaceAfterProperty: false
 ObjCSpaceBeforeProtocolList: false
-# Come back to the penalty breaks stuff later...
+## All Penalty settings untouched
 PenaltyBreakAssignment: 2
 PenaltyBreakBeforeFirstCallParameter: 1
 PenaltyBreakComment: 300
@@ -160,7 +147,7 @@ PenaltyExcessCharacter: 1000000
 PenaltyReturnTypeOnItsOwnLine: 200
 PenaltyIndentedWhitespace: 0
 PointerAlignment: Right
-# ???
+# Untouched
 RawStringFormats:
   - Language:        Cpp
     Delimiters:
@@ -192,21 +179,20 @@ RawStringFormats:
     CanonicalDelimiter: ''
     BasedOnStyle:    google
 ReflowComments:  true
-SortIncludes:    true
+SortIncludes:    CaseSensitive
 SortJavaStaticImport: After
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: true
 SpaceAfterLogicalNot: true
-SpaceAfterTemplateKeyword: false
-#SpaceAroundPointerQualifiers: Default
+SpaceAfterTemplateKeyword: false  # ???
 SpaceAroundPointerQualifiers: Before
 SpaceBeforeAssignmentOperators: true
 SpaceBeforeCaseColon: false
 SpaceBeforeCpp11BracedList: true
-SpaceBeforeCtorInitializerColon: true
-SpaceBeforeInheritanceColon: true
+SpaceBeforeCtorInitializerColon: false
+SpaceBeforeInheritanceColon: false
 SpaceBeforeParens: ControlStatements
-SpaceBeforeRangeBasedForLoopColon: true
+SpaceBeforeRangeBasedForLoopColon: false
 SpaceInEmptyBlock: true
 SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 2
@@ -218,12 +204,14 @@ SpacesInParentheses: false
 SpacesInSquareBrackets: false
 SpaceBeforeSquareBrackets: false
 Standard:        Auto
+## Untouched
 StatementMacros:
   - Q_UNUSED
   - QT_REQUIRE_VERSION
 TabWidth:        4
 UseCRLF:         false
 UseTab:          Never
+## Untouched
 WhitespaceSensitiveMacros:
   - STRINGIZE
   - PP_STRINGIZE

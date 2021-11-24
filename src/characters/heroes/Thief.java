@@ -29,8 +29,8 @@ public class Thief extends Hero {
         double surprise = Math.random();
 
         if (surprise <= .4) {
-            System.out.println("Surprise attack was successful!\n" + name
-                               + " gets an additional turn.");
+            System.out.println("Surprise attack was successful!\n" + name +
+                               " gets an additional turn.");
             numTurns++;
             attack(opponent);
         } else if (surprise >= .9) {

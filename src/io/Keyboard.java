@@ -12,8 +12,8 @@ public class Keyboard {
     // Tokenized Input Stream Variables.
     private static String               currentToken = null;
     private static StringTokenizer      reader;
-    private static final BufferedReader in
-            = new BufferedReader(new InputStreamReader(System.in));
+    private static final BufferedReader in =
+            new BufferedReader(new InputStreamReader(System.in));
 
     /**
      * Prints out a specified error message.
@@ -66,9 +66,7 @@ public class Keyboard {
 
                 token = reader.nextToken();
             }
-        } catch (Exception exception) {
-            token = null;
-        }
+        } catch (Exception exception) { token = null; }
 
         return token;
     }
@@ -87,9 +85,7 @@ public class Keyboard {
 
         try {
             str = new StringBuilder(getNextToken(false));
-            while (! endOfLine()) {
-                str.append(getNextToken(false));
-            }
+            while (! endOfLine()) { str.append(getNextToken(false)); }
         } catch (Exception exception) {
             error("Error reading String data, null value returned.");
             str = null;

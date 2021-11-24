@@ -23,15 +23,9 @@ public abstract class Monster extends DungeonCharacter {
      * @param minHeal      The minimum amount of health to be restored.
      * @param maxHeal      The maximum amount of health to be restored...
      */
-    protected Monster(String name,
-                      int    hitPoints,
-                      int    attackSpeed,
-                      double chanceToHit,
-                      double chanceToHeal,
-                      int    damageMin,
-                      int    damageMax,
-                      int    minHeal,
-                      int    maxHeal) {
+    protected Monster(String name, int hitPoints, int attackSpeed, double chanceToHit,
+                      double chanceToHeal, int damageMin, int damageMax, int minHeal,
+                      int maxHeal) {
         super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
         this.chanceToHeal = chanceToHeal;
         this.maxHeal      = maxHeal;

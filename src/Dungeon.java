@@ -71,8 +71,9 @@ public class Dungeon {
             default:
                 throw new IllegalArgumentException(
                         "Internal Error: generateMonster "
-                        + "attempted to generate a monster that doesn't exist\nChoice: "
-                        + choice);
+                        +
+                        "attempted to generate a monster that doesn't exist\nChoice: " +
+                        choice);
         }
     }
 
@@ -109,9 +110,7 @@ public class Dungeon {
             theHero.battleChoices(theMonster);
 
             /// Monster's turn (provided it's still alive!).
-            if (theMonster.isAlive()) {
-                theMonster.attack(theHero);
-            }
+            if (theMonster.isAlive()) { theMonster.attack(theHero); }
 
             /// Let the player bail out if desired.
             System.out.print("--> q to quit, anything else to continue: ");
